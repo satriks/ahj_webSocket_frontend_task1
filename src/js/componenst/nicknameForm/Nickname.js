@@ -7,18 +7,17 @@ export default class Nickname {
     this.webSocket = webSocket
     this.existNames = []
     this.preInit()
-    this.init()
+    // this.init()
   }
 
   // получение занятых имен пользователей в чате
   preInit () {
-    const getWsData = new WebSocket('ws://localhost:7070?online=online')
+    const getWsData = new WebSocket('wss://ahj-websocket-server-task1.onrender.com?online=online')
     getWsData.addEventListener('message', (message) => {
-      console.log(message)
       this.existNames = JSON.parse(message.data)
-      console.log(this.existNames)
       this.existNames.forEach(name => this.setName(name))
       getWsData.close()
+      this.init()
     })
   }
 

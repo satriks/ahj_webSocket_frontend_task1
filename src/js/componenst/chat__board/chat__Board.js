@@ -49,10 +49,9 @@ export default class Chat {
 
   // получение сообщений из чата с сервера
   oldMessages () {
-    const wsGetOldMassages = new WebSocket('ws://localhost:7070?history=history')
+    const wsGetOldMassages = new WebSocket('wss://ahj-websocket-server-task1.onrender.com?history=history')
     wsGetOldMassages.addEventListener('message', (message) => {
       const history = JSON.parse(message.data).chat
-      console.log(history, 'history')
       history.forEach(message => this.newMessage(message.message, message.name, new Date(message.time).toLocaleString()))
       wsGetOldMassages.close()
     })

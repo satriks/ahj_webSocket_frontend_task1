@@ -35,10 +35,9 @@ export default class DomControl {
   // Веб сокет взаимодействие
   onWebSocket () {
     this.chatBoard.oldMessages()
-    this.ws = new WebSocket('ws://localhost:7070/ws?name=' + this.nickname.name)
+    this.ws = new WebSocket('wss://ahj-websocket-server-task1.onrender.com/ws?name=' + this.nickname.name)
 
     this.ws.addEventListener('message', (message) => {
-      console.log(message.data, 'data')
 
       const { online, chat } = JSON.parse(message.data)
 
@@ -46,7 +45,6 @@ export default class DomControl {
         this.online.updateOnline(online)
       }
       if (chat) {
-        console.log(chat, 'chat')
         this.chatBoard.updateChat(chat)
       }
       this.marks()
@@ -58,7 +56,6 @@ export default class DomControl {
 
   // подсветка ника и центровка сообщений
   marks () {
-    console.log(this.online.users, 'users')
     this.online.users.forEach(user => {
       if (user.innerText === this.nickname.name) {
         user.classList.add('chat__user-active')
@@ -68,8 +65,6 @@ export default class DomControl {
       const author = message.querySelector('.message__author')
 
       if (author.innerText.trim() === this.nickname.name.trim()) {
-        console.log('tyta')
-        console.log(author.closest('.chat__message'), 'author form mark')
         author.closest('.chat__message').classList.add('chat__message-active')
       }
     })
