@@ -38,7 +38,6 @@ export default class DomControl {
     this.ws = new WebSocket('wss://ahj-websocket-server-task1.onrender.com/ws?name=' + this.nickname.name)
 
     this.ws.addEventListener('message', (message) => {
-
       const { online, chat } = JSON.parse(message.data)
 
       if (online) {
