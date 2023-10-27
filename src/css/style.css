@@ -23,7 +23,7 @@ body {
   align-items: flex-end;
 }
 .chat__board{
-  width: 70%;
+  width: 40%;
   border: 1px double grey; ;
   border-radius: 10px;
 }
@@ -36,8 +36,9 @@ body {
   border-radius: 10px;
 }
 .chat__logOut{
-  height: 35px;
-  font-size: 20px;
+  
+  /* height: 35px; */
+  font-size: 16px;
   justify-self: flex-end;
 
   
@@ -49,6 +50,8 @@ body {
 .chat__text{
   overflow-y: scroll;
   height: 300px;
+  display: flex;
+  flex-direction: column;
 
 }
 .chat__input{
@@ -59,17 +62,16 @@ body {
   outline: navy;
 }
 
-.user{
+.chat__user{
   position: relative;
   box-sizing: border-box;
   margin: 15px;
   padding-left: 40px;
   align-self: center;
   justify-self: center;
-  /* padding: 25px; */
 
 }
-.user::before{
+.chat__user::before{
   content: "";
   position: absolute;
   top: -5px;
@@ -78,7 +80,6 @@ body {
   height: 30px;
   border: 1px solid black;
   border-radius: 50%;
-  /* background-color:yellow; */
 }
 
 .chat__message{
@@ -86,7 +87,50 @@ body {
   font-size: 10px;
 
 }
-.message_data{
+.message__data{
 color: lightsalmon;
 margin-bottom: 10px;
 }
+
+.chat__nickname{
+  position: absolute;
+  top: 30%;
+  left: 40%;
+  width: 400px;
+  height: 200px;
+  border: 1px solid black;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: whitesmoke;
+}
+
+.chat__nickname > h2 {
+  text-align: center;
+
+} 
+.chat__nickname > input {
+  margin: 10px;
+}
+.chat__nickname > button {
+  margin: 29px;
+  height: 25px;
+}
+
+.chat__nickname-error{
+  text-align: center;
+  color: red;
+}
+.chat__user-active{
+  color: lightgreen;
+}
+.chat__message-active{
+  color: lightseagreen;
+  align-self: flex-end;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+}
+
+

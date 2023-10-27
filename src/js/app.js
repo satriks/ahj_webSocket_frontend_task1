@@ -1,5 +1,4 @@
-// import './componenst/imageControl'
-// import ImageControl from './componenst/imageControl'
+import DomControl from './componenst/DomControl'
 
-// const control = new ImageControl() // eslint-disable-line
-// control.drawDom()
+const control = new DomControl()
+control.init()
